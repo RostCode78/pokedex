@@ -31,7 +31,7 @@ const Formulario = () => {
     }
 
     const onChangePokemon = e => {
-        guardarPokemon(e.target.value);
+        guardarPokemon (e.target.value);
     }
 
     return (
