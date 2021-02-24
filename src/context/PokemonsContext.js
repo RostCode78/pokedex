@@ -12,14 +12,14 @@ const PokemonsProvider = (props) => {
 
     // Ejecutar el llamado al API
     useEffect(() => {
-        const obtenerPokemons = async () => {
-            const url = 'https://pokeapi.co/api/v2/pokemon/?limit=898';
+        const obtenerPokemons = async (limit) => {
+            const url = `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`;
 
-            const pokemons = await axios.get(url);
+            const response = await axios.get(url);
 
-            guardarPokemons(pokemons.data.results)
+            guardarPokemons(response.data.results);
         }
-        obtenerPokemons();
+        obtenerPokemons(898);
     }, [])
 
     return (
