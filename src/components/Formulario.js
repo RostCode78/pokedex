@@ -44,7 +44,7 @@ const Formulario = () => {
                     <input
                         type="text"
                         className={styles.form_control}
-                        placeholder="Busca un pokemon, ejemplo: Lapras o 131"
+                        placeholder="Busca un pokemon, ejemplo: Lapras/131"
                         onChange={ onChangePokemon }
                         onFocus={onFocusLine}
                         onBlur={onBlurLine}

@@ -27,7 +27,7 @@ const ListaPokemons = () => {
                     key={pokemon.url}
                     pokemon={pokemon}
                 />
-            )).slice(0,25) }
+            )) }
         </Row>
     );
 }
