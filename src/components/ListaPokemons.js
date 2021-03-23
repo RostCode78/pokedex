@@ -29,6 +29,7 @@ const ListaPokemons = () => {
     useEffect(() => {
         obtenerPokemons(pokemons);
         filtrarPokemon(busqueda);
+        // eslint-disable-next-line
     }, [busqueda]);
 
     return (
