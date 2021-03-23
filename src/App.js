@@ -1,14 +1,15 @@
 import Formulario from './components/Formulario';
 import ListaPokemons from './components/ListaPokemons';
 
-import PokemonsProvider from './context/PokemonsContext';
+// import PokemonsProvider from './context/PokemonsContext';
+import PokemonState from './context/pokemon/pokemonState';
 
 function App() {
   return (
-    <PokemonsProvider>
+    <PokemonState>
       <Formulario/>
       <ListaPokemons/>
-    </PokemonsProvider>
+    </PokemonState>
   );
 }
 

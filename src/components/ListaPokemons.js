@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { PokemonsContext } from '../context/PokemonsContext';
+import pokemonContext from '../context/pokemon/pokemonContext';
 import Pokemon from './Pokemon';
 import styled from '@emotion/styled';
 
@@ -17,8 +17,9 @@ const Row = styled.div`
 
 const ListaPokemons = () => {
 
-    // Extraer los pokemons
-    const { pokemons } = useContext(PokemonsContext);
+    // Extraer pokemon de state inicial
+    const pokemonsContext = useContext(pokemonContext);
+    const { pokemons } = pokemonsContext;
 
     return (
         <Row>
