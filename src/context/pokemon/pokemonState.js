@@ -5,7 +5,8 @@ import axios from 'axios';
 
 import {
     OBTENER_POKEMONS,
-    BUSCAR_POKEMON
+    BUSCAR_POKEMON,
+    FILTRAR_POKEMON
 } from '../../types/index';
 
 const PokemonState = props => {
@@ -48,6 +49,13 @@ const PokemonState = props => {
         })
     }
 
+    const filtrarPokemon = busqueda => {
+        dispatch({
+            type: FILTRAR_POKEMON,
+            payload: busqueda
+        })
+    }
+
     return (
         <pokemonContext.Provider
             value={{
@@ -55,7 +63,8 @@ const PokemonState = props => {
                 catchemall: state.catchemall,
                 pokemons,
                 obtenerPokemons,
-                buscarPokemon
+                buscarPokemon,
+                filtrarPokemon
             }}
         >
             { props.children }

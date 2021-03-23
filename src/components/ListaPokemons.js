@@ -19,12 +19,17 @@ const ListaPokemons = () => {
 
     // Extraer pokemon de state inicial
     const pokemonsContext = useContext(pokemonContext);
-    const { busqueda, catchemall, pokemons, obtenerPokemons } = pokemonsContext;
+    const { busqueda, catchemall, pokemons, obtenerPokemons, filtrarPokemon } = pokemonsContext;
 
     useEffect(() => {
         obtenerPokemons(pokemons);
         // eslint-disable-next-line
     }, [pokemons]);
+
+    useEffect(() => {
+        obtenerPokemons(pokemons);
+        filtrarPokemon(busqueda);
+    }, [busqueda]);
 
     return (
         <Row>
