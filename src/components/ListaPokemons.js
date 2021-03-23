@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import pokemonContext from '../context/pokemon/pokemonContext';
 import Pokemon from './Pokemon';
 import styled from '@emotion/styled';
@@ -19,16 +19,21 @@ const ListaPokemons = () => {
 
     // Extraer pokemon de state inicial
     const pokemonsContext = useContext(pokemonContext);
-    const { pokemons } = pokemonsContext;
+    const { busqueda, catchemall, pokemons, obtenerPokemons } = pokemonsContext;
+
+    useEffect(() => {
+        obtenerPokemons(pokemons);
+        // eslint-disable-next-line
+    }, [pokemons]);
 
     return (
         <Row>
-            { pokemons.map(pokemon => (
+            {catchemall.map(pokemon => (
                 <Pokemon
                     key={pokemon.url}
                     pokemon={pokemon}
                 />
-            )) }
+            ))}
         </Row>
     );
 }

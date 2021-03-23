@@ -1,7 +1,12 @@
 import { useReducer, useState, useEffect } from 'react';
-import PokemonContext from './pokemonContext';
-import PokemonReducer from './pokemonReducer';
+import pokemonContext from './pokemonContext';
+import pokemonReducer from './pokemonReducer';
 import axios from 'axios';
+
+import {
+    OBTENER_POKEMONS,
+    BUSCAR_POKEMON
+} from '../../types/index';
 
 const PokemonState = props => {
 
@@ -18,16 +23,43 @@ const PokemonState = props => {
             guardarPokemons(response.data.results);
         }
         obtenerPokemons(898);
+        // eslint-disable-next-line
     }, [])
 
+    const initialState = {
+        catchemall : [],
+        prueba : false,
+        busqueda : ''
+    }
+
+    const [ state, dispatch ] = useReducer( pokemonReducer, initialState );
+
+    const obtenerPokemons = pokes => {
+        dispatch({
+            type: OBTENER_POKEMONS,
+            payload: pokes
+        })
+    }
+
+    const buscarPokemon = nombre => {
+        dispatch({
+            type: BUSCAR_POKEMON,
+            payload: nombre
+        })
+    }
+
     return (
-        <PokemonContext.Provider
+        <pokemonContext.Provider
             value={{
-                pokemons
+                busqueda: state.busqueda,
+                catchemall: state.catchemall,
+                pokemons,
+                obtenerPokemons,
+                buscarPokemon
             }}
         >
             { props.children }
-        </PokemonContext.Provider>
+        </pokemonContext.Provider>
     )
 
 }

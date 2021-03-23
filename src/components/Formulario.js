@@ -1,12 +1,34 @@
-import { useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import pokemonContext from '../context/pokemon/pokemonContext';
 import styles from './css/Formulario.module.css';
 import lupa from '../images/lupa.svg';
 import Error from './Error';
 
 const Formulario = () => {
 
-    const [ pokemon, guardarPokemon ] = useState('');
+    // Extraer pokemon de state inicial
+    const pokemonsContext = useContext(pokemonContext);
+    const { buscarPokemon } = pokemonsContext;
+
+    const [ pokemon, guardarPokemon ] = useState({
+        nombre: ''
+    });
     const [ error, guardarError ] = useState('');
+
+    // Extraer nombre de pokemon
+    const { nombre } = pokemon;
+
+    const onChangePokemon = e => {
+        guardarPokemon({
+            ...pokemon,
+            [e.target.name] : e.target.value
+        });
+    }
+
+    useEffect( () => {
+        buscarPokemon(nombre.toLowerCase());
+        // eslint-disable-next-line
+    }, [nombre])
 
     const onFocusLine = e => {
         e.target.style.borderBottom = '2px solid #f9f5f4';
@@ -16,28 +38,22 @@ const Formulario = () => {
         e.target.style.borderBottom = '2px solid #f9f5f45d';
     }
 
-    const buscarPokemon = e => {
+    const buscarNombre = e => {
         e.preventDefault();
 
         // Validar
-        if( pokemon.trim() === '' ) {
+        if( nombre.trim() === '' ) {
             guardarError(true);
             return;
         }
         guardarError(false);
 
-        // Enviar el termino de búsqueda hacia el componente principal.
-
-    }
-
-    const onChangePokemon = e => {
-        guardarPokemon (e.target.value);
     }
 
     return (
 
         <form
-            onSubmit={buscarPokemon}
+            onSubmit={buscarNombre}
         >
             <div className={styles.row}>
                 <div className={styles.form_group}>
@@ -45,9 +61,11 @@ const Formulario = () => {
                         type="text"
                         className={styles.form_control}
                         placeholder="Busca un pokemon, ejemplo: Lapras/131"
-                        onChange={ onChangePokemon }
                         onFocus={onFocusLine}
                         onBlur={onBlurLine}
+                        name="nombre"
+                        value={nombre}
+                        onChange={ onChangePokemon }
                     />
                 </div>
                 <div className={styles.form_submit}>
