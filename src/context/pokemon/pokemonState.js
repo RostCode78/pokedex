@@ -13,6 +13,7 @@ const PokemonState = props => {
 
     // Crear el state del Context
     const [ pokemons, guardarPokemons ] = useState([]);
+    const [ cargando, guardarCargando ] = useState(false)
 
     // Ejecutar el llamado al API
     useEffect(() => {
@@ -21,7 +22,13 @@ const PokemonState = props => {
 
             const response = await axios.get(url);
 
-            guardarPokemons(response.data.results);
+            guardarCargando(true);
+
+            setTimeout(() => {
+                guardarCargando(false);
+                guardarPokemons(response.data.results);
+            }, 10000);
+
         }
         obtenerPokemons(898);
         // eslint-disable-next-line
@@ -62,6 +69,7 @@ const PokemonState = props => {
                 busqueda: state.busqueda,
                 catchemall: state.catchemall,
                 pokemons,
+                cargando,
                 obtenerPokemons,
                 buscarPokemon,
                 filtrarPokemon

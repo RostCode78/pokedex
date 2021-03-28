@@ -4,26 +4,25 @@ import styled from '@emotion/styled';
 import styles from './css/Pokemon.module.css';
 
 const Card = styled.div`
-    width: 250px;
-    height: 280px;
-    margin: 0 22px 45px 22px;
+    width: 320px;
+    height: 100px;
+    margin: 0 15px 25px 15px;
     padding: 10px;
-    background-color: #f9f5f4;
-    border: 5px solid #f9f5f4;
+    background-color: #E7E7E7;
+    border: 5px solid #E7E7E7;
     box-shadow: 4px 4px 8px #00000032, -4px -4px 8px #FFFFFF52;
     border-radius: 30px;
     cursor: pointer;
-    transition: .2s ease-in-out;
+    transition: .1s ease-in-out;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    position: relative;
 
     &:hover{
-        box-shadow: 4px 4px 8px #FF000022, -4px -4px 8px #0000FF22;
+        box-shadow: 4px 4px 8px #00000022, -4px -4px 8px #FFFFFF22;
     }
     &:active{
-        box-shadow: 4px 4px 8px #FF000012, -4px -4px 8px #0000FF12;
+        box-shadow: 4px 4px 8px #00000012, -4px -4px 8px #FFFFFF12;
     }
 `
 
@@ -45,11 +44,12 @@ const Pokemon = ({ pokemon }) => {
             onClick={obtenerPoke}
         >
 
-            <div className={styles.top}>
-                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}.png`} alt={`Imagen de ${pokemon.name}`}/>
+            <div className={styles.text}>
+                <p>#{('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}</p>
+                <h2>{pokemon.name}</h2>
             </div>
-            <div className={styles.bottom}>
-                <p>{pokemon.name}</p>
+            <div className={styles.image}>
+                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}.png`} alt={`Imagen de ${pokemon.name}`}/>
             </div>
             
         </Card>

@@ -21,14 +21,14 @@
     border: none;
     background-color: #4882ce;
     color: #f9f5f4;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Oxygen', sans-serif;
     font-size: 1.5em;
     text-align: center;
 }
 
 .form_control::placeholder {
     color: #f9f5f4;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Oxygen', sans-serif;
 }
 
 .form_control:focus {
