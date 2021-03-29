@@ -1,67 +1,71 @@
-.row {
+.form {
     width: 100%;
-    height: 10vh;
-    background-color: #4882ce;
+    height: auto;
+    background-color: #E7E7E7;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+}
+
+.row {
+    width: 350px;
+    height: 80px;
+    background-color: #E7E7E7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .form_group {
-    width: 60%;
-    height: 60%;
-    margin: 0 10px;
-    border-bottom: 2px solid #f9f5f45d;
+    width: 350px;
+    height: 50px;
+    background-color: #F16A6A;
+    border-radius: 50px;
+    padding-left: 20px;
 }
 
 .form_control {
     width: 100%;
     height: 100%;
     border: none;
-    background-color: #4882ce;
-    color: #f9f5f4;
+    background-color: transparent;
+    color: #FFFFFF;
     font-family: 'Oxygen', sans-serif;
     font-size: 1.5em;
-    text-align: center;
+    text-align: left;
 }
 
 .form_control::placeholder {
-    color: #f9f5f4;
+    color: #FFFFFF;
     font-family: 'Oxygen', sans-serif;
 }
 
 .form_control:focus {
-    outline: none !important;
+    outline: none!important;
 }
 
 .form_submit {
-    width: auto;
-    height: auto;
-    margin: 0 10px;
+    width: 65px;
+    height: 65px;
+    background-color: #E7E7E7;
+    border-radius: 50px;
+    position: absolute;
+    right: -1px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .btn {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    /* background-color: #f9f5f4; */
-    border: 2px solid #4882ce;
+    border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all .3s ease-in-out;
-    box-shadow: 2px 2px 4px #00000042, -2px -2px 4px #FFFFFF42;
-}
-
-.btn:hover {
-    box-shadow: 2px 2px 4px #00000022, -2px -2px 4px #FFFFFF22;
-}
-
-.btn:active {
-    box-shadow: 2px 2px 4px #00000012, -2px -2px 4px #FFFFFF12;
 }
 
 .btn:focus {
@@ -70,8 +74,8 @@
 
 .btn img {
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     object-position: center;
     /* prevent original image from dragging */
@@ -81,4 +85,10 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
+}
+
+@media(max-width:340px) {
+    .row {
+        width: 100%;
+    }
 }

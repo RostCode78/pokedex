@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import pokemonContext from '../context/pokemon/pokemonContext';
 import styles from './css/Formulario.module.css';
-import lupa from '../images/lupa.svg';
+import lupa from '../images/search.svg';
 import Error from './Error';
 
 const Formulario = () => {
@@ -54,13 +54,14 @@ const Formulario = () => {
 
         <form
             onSubmit={buscarNombre}
+            className={styles.form}
         >
             <div className={styles.row}>
                 <div className={styles.form_group}>
                     <input
                         type="text"
                         className={styles.form_control}
-                        placeholder="Busca un pokemon, ejemplo: Lapras/131"
+                        placeholder="Search Pokémon..."
                         onFocus={onFocusLine}
                         onBlur={onBlurLine}
                         name="nombre"
@@ -72,7 +73,7 @@ const Formulario = () => {
                     <button
                         type="submit"
                         className={styles.btn}
-                    ><img src={lupa} alt="lupa.svg"/></button>
+                    ><img src={lupa} alt="search.svg"/></button>
                 </div>
             </div>
 
