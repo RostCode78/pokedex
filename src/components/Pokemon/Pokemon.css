@@ -1,0 +1,157 @@
+.box {
+    width: 100%;
+    height: 100vh;
+    background-color: #addbff;
+    position: relative;
+}
+
+.background-top-1 {
+    width: 100%;
+    height: 45%;
+    border-bottom-right-radius: 80px;
+    background-color: #E7E7E7;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in;
+}
+
+
+/* NOMBRE Y ID */
+
+.nombre-id {
+    width: 270px;
+    height: auto;
+    position: absolute;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombre-id h2 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #f9f5f4;
+    text-transform: capitalize;
+}
+
+.nombre-id p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: #f9f5f4;
+}
+
+
+/*============================
+==>      NOMBRE Y ID       <==
+============================*/
+
+
+/* TYPES */
+
+.types {
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 20px;
+    bottom: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.tipo1,
+.tipo2 {
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border: 1px solid #E7E7E7;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .8em;
+    color: #f9f5f4;
+    text-transform: capitalize;
+}
+
+.tipo1 {
+    background-color: #E7E7E7;
+}
+
+.tipo2 {
+    background-color: #869eff;
+}
+
+
+/*===================
+==>     TYPES     <==
+===================*/
+
+
+/* IMAGEN */
+
+.imagen {
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: -40px;
+}
+
+.imagen img {
+    display: block;
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    /* prevent original image from dragging */
+    pointer-events: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+
+/*====================
+==>     IMAGEN     <==
+====================*/
+
+.background-top-2 {
+    width: 100%;
+    height: 45%;
+    background-color: #E7E7E7;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.background-bottom-1 {
+    width: 100%;
+    height: 55%;
+    border-top-left-radius: 80px;
+    background-color: #E7E7E7;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+}
+
+.background-bottom-2 {
+    width: 100%;
+    height: 55%;
+    background-color: #E7E7E7;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    transition: all .2s ease-in;
+}

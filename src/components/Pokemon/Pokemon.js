@@ -1,7 +1,10 @@
-import { useContext, Fragment, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, Fragment } from 'react';
+import { useHistory } from 'react-router-dom';
 import pokemonContext from '../../context/pokemon/pokemonContext';
 import MovesList from './MovesList';
+import ReturnBtn from './ReturnBtn';
 import axios from 'axios';
+import './Pokemon.css';
 
 const Pokemon = () => {
 
@@ -9,11 +12,14 @@ const Pokemon = () => {
     const pokemonsContext = useContext(pokemonContext);
     const { pokemon } = pokemonsContext;
 
+    const history = useHistory();
+
     const [ species, guardarSpecie ] = useState([]);
     const [ poke, guardarPoke ] = useState([]);
     const [ carga, guardarCarga ] = useState(false);
 
     useEffect( () => {
+
         const url1 = async () => {
             const url = pokemon[0].url;
             const url2 = `https://pokeapi.co/api/v2/pokemon-species/${pokemon[0].url.substring(34, pokemon[0].url.length -1)}`;
@@ -31,12 +37,13 @@ const Pokemon = () => {
         }
         url1();
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
-    const img = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon[0].url.substring(34, pokemon[0].url.length -1)).slice(-3)}.png`;
+    const url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon[0].url.substring(34, pokemon[0].url.length -1)).slice(-3)}.png`;
     let nombre, id, type1, type2, genero, descripcion, grupohuevo, grupociclo, amistad, color;
     let habilidad1, habilidad2, habilidad3, habilidad4;
     let hp, atk, satk, def, sdef, spd;
+    let background1, background2, tipo1, tipo2;
     let dostipos = false;
     let dosgrupos = false;
     let moves;
@@ -131,41 +138,58 @@ const Pokemon = () => {
         
     }
 
+    useEffect( () => {
+
+        background1 = document.querySelector('.background-top-1');
+        background2 = document.querySelector('.background-bottom-2');
+        tipo1 = document.querySelector('.tipo1');
+        tipo2 = document.querySelector('.tipo2');
+
+        switch( type1 ) {
+            case 'grass':
+                return (
+                    background1.style.backgroundColor = "#9AC79C",
+                    background2.style.backgroundColor = "#9AC79C",
+                    tipo1.style.backgroundColor = "#9AC79C"
+                )
+            case 'fire':
+                return (
+                    background1.style.backgroundColor = "#E28569",
+                    background2.style.backgroundColor = "#E28569",
+                    tipo1.style.backgroundColor = "#E28569"
+                )
+            default:
+                return
+        }
+    }, [carga])
+
     return (
-        <Fragment>
+        <div className="box">
+            <ReturnBtn/>
 
-            <h1>{nombre}</h1>
-            <p>{id}</p>
-            <p>{type1}</p>
+            <div className="background-top-1">
+                <div className="nombre-id">
+                    <h2>{nombre}</h2>
+                    <p>#{id}</p>
+                </div>
+                <div className="types">
+                        <p className="tipo1">{type1}</p>
+                    { dostipos 
+                    ?
+                        <p className="tipo2">{type2}</p>
+                    :
+                        null
+                    }
+                </div>
+                <div className="imagen">
+                    <img src={url} alt={nombre}/>
+                </div>
+            </div>
+            <div className="background-top-2"></div>
+            <div className="background-bottom-1"></div>
+            <div className="background-bottom-2"></div>
 
-            { dostipos ? <p>{type2}</p> : null }
-
-            <img src={img} alt={`Imagen de ${nombre}`}/>
-            <p>{genero}</p>
-
-            { descripcion !== "" ? <p>{descripcion}</p> : <p>Descripción no encontrada</p> }
-
-            <p>{grupohuevo}</p>
-
-            { dosgrupos ? <p>{grupociclo}</p> : null }
-
-            <p>{amistad}</p>
-            <p>{color}</p>
-            <p>{habilidad1}</p>
-            <p>{habilidad2}</p>
-            <p>{habilidad3}</p>
-            <p>{habilidad4}</p>
-            <p>{hp}</p>
-            <p>{atk}</p>
-            <p>{satk}</p>
-            <p>{def}</p>
-            <p>{sdef}</p>
-            <p>{spd}</p>
-            <MovesList
-                moves={moves}
-            />
-
-        </Fragment>
+        </div>
     );
 }
 

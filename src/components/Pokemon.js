@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import axios from 'axios';
 import styled from '@emotion/styled';
 import styles from './css/Pokemon.module.css';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +18,12 @@ const Card = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &:hover{
         box-shadow: 4px 4px 8px #00000022, -4px -4px 8px #FFFFFF22;
