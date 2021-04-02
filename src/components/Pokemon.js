@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import axios from 'axios';
 import styled from '@emotion/styled';
 import styles from './css/Pokemon.module.css';
+import { useHistory } from 'react-router-dom';
+import pokemonContext from '../context/pokemon/pokemonContext';
 
 const Card = styled.div`
     width: 320px;
@@ -28,31 +30,32 @@ const Card = styled.div`
 
 const Pokemon = ({ pokemon }) => {
 
-    const [ poke, guardarPoke ] = useState([]);
+    // Extraer pokemon de state inicial
+    const pokemonsContext = useContext(pokemonContext);
+    const { pokemonActual } = pokemonsContext;
 
-    const obtenerPoke = async e => {
-        const url = pokemon.url;
+    const history = useHistory();
 
-        const response = await axios.get(url);
-
-        guardarPoke(response.data);
-        console.log(response.data);
+    const seleccionarPokemon = async nombre => {
+        await pokemonActual(nombre);
+        history.push('/pokemon');
     }
 
-    return ( 
-        <Card
-            onClick={obtenerPoke}
-        >
+    return (
 
-            <div className={styles.text}>
-                <p>#{('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}</p>
-                <h2>{pokemon.name}</h2>
-            </div>
-            <div className={styles.image}>
-                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}.png`} alt={`Imagen de ${pokemon.name}`}/>
-            </div>
+            <Card
+                onClick={ () => seleccionarPokemon(pokemon.url) }
+            >
+                <div className={styles.text}>
+                    <p>#{('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}</p>
+                    <h2>{pokemon.name}</h2>
+                </div>
+                <div className={styles.image}>
+                    <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('000'+pokemon.url.substring(34, pokemon.url.length -1)).slice(-3)}.png`} alt={`Imagen de ${pokemon.name}`}/>
+                </div>
+                
+            </Card>
             
-        </Card>
     );
 }
 

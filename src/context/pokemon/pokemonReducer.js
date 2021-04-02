@@ -1,7 +1,8 @@
 import {
     OBTENER_POKEMONS,
     BUSCAR_POKEMON,
-    FILTRAR_POKEMON
+    FILTRAR_POKEMON,
+    POKEMON_ACTUAL
 } from '../../types/index';
 
 export default ( state, action ) => {
@@ -21,7 +22,11 @@ export default ( state, action ) => {
                 ...state,
                 catchemall: state.catchemall.filter( pokemon => pokemon.name.match(action.payload))
             }
-
+        case POKEMON_ACTUAL:
+            return {
+                ...state,
+                pokemon: state.catchemall.filter( pokemon => pokemon.url.match(action.payload))
+            }
         default:
             return state;
     }

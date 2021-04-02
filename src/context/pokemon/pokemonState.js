@@ -6,7 +6,8 @@ import axios from 'axios';
 import {
     OBTENER_POKEMONS,
     BUSCAR_POKEMON,
-    FILTRAR_POKEMON
+    FILTRAR_POKEMON,
+    POKEMON_ACTUAL
 } from '../../types/index';
 
 const PokemonState = props => {
@@ -37,7 +38,8 @@ const PokemonState = props => {
     const initialState = {
         catchemall : [],
         prueba : false,
-        busqueda : ''
+        busqueda : '',
+        pokemon : null
     }
 
     const [ state, dispatch ] = useReducer( pokemonReducer, initialState );
@@ -63,16 +65,25 @@ const PokemonState = props => {
         })
     }
 
+    const pokemonActual = pokemonNombre => {
+        dispatch({
+            type: POKEMON_ACTUAL,
+            payload: pokemonNombre
+        })
+    }
+
     return (
         <pokemonContext.Provider
             value={{
                 busqueda: state.busqueda,
                 catchemall: state.catchemall,
+                pokemon: state.pokemon,
                 pokemons,
                 cargando,
                 obtenerPokemons,
                 buscarPokemon,
-                filtrarPokemon
+                filtrarPokemon,
+                pokemonActual
             }}
         >
             { props.children }
