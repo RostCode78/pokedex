@@ -43,7 +43,7 @@ const Pokemon = () => {
     let nombre, id, type1, type2, genero, descripcion, grupohuevo, grupociclo, amistad, color;
     let habilidad1, habilidad2, habilidad3, habilidad4;
     let hp, atk, satk, def, sdef, spd;
-    let background1, background2, tipo1, tipo2;
+    let background1, background2, tipo1, tipo2, txtNombre, txtId;
     let dostipos = false;
     let dosgrupos = false;
     let moves;
@@ -144,6 +144,25 @@ const Pokemon = () => {
         background2 = document.querySelector('.background-bottom-2');
         tipo1 = document.querySelector('.tipo1');
         tipo2 = document.querySelector('.tipo2');
+        txtNombre = document.querySelector('.nombre-id h2');
+        txtId = document.querySelector('.nombre-id p');
+
+        if ( dostipos && type1 === 'electric' ) {
+            tipo2.style.color = "#303030";
+            tipo2.style.border = "2px solid #303030";
+        } else if ( dostipos && type1 === 'flying' ) {
+            tipo2.style.color = "#303030";
+            tipo2.style.border = "2px solid #303030";
+        } else if ( dostipos && type1 === 'ice' ) {
+            tipo2.style.color = "#303030";
+            tipo2.style.border = "2px solid #303030";
+        } else if ( dostipos && type1 === 'fairy' ) {
+            tipo2.style.color = "#303030";
+            tipo2.style.border = "2px solid #303030";
+        } else if ( dostipos && type1 === 'normal' ) {
+            tipo2.style.color = "#303030";
+            tipo2.style.border = "2px solid #303030";
+        }
 
         switch( type1 ) {
             case 'grass':
@@ -157,6 +176,205 @@ const Pokemon = () => {
                     background1.style.backgroundColor = "#E28569",
                     background2.style.backgroundColor = "#E28569",
                     tipo1.style.backgroundColor = "#E28569"
+                )
+            case 'water':
+                return (
+                    background1.style.backgroundColor = "#82C3FF",
+                    background2.style.backgroundColor = "#82C3FF",
+                    tipo1.style.backgroundColor = "#82C3FF"
+                )
+            case 'normal':
+                return (
+                    background1.style.backgroundColor = "#cacac2",
+                    background2.style.backgroundColor = "#cacac2",
+                    tipo1.style.backgroundColor = "#cacac2",
+                    tipo1.style.color = "#303030",
+                    txtNombre.style.color = "#303030",
+                    txtId.style.color = "#303030",
+                    tipo1.style.border = "2px solid #303030"
+                )
+            case 'electric':
+                return (
+                    background1.style.backgroundColor = "#FFE85B",
+                    background2.style.backgroundColor = "#FFE85B",
+                    tipo1.style.backgroundColor = "#FFE85B",
+                    tipo1.style.color = "#303030",
+                    txtNombre.style.color = "#303030",
+                    txtId.style.color = "#303030",
+                    tipo1.style.border = "2px solid #303030"
+                )
+            case 'psychic':
+                return (
+                    background1.style.backgroundColor = "#FD92B9",
+                    background2.style.backgroundColor = "#FD92B9",
+                    tipo1.style.backgroundColor = "#FD92B9"
+                )
+            case 'fighting':
+                return (
+                    background1.style.backgroundColor = "#D6513E",
+                    background2.style.backgroundColor = "#D6513E",
+                    tipo1.style.backgroundColor = "#D6513E"
+                )
+            case 'rock':
+                return (
+                    background1.style.backgroundColor = "#c0ac64",
+                    background2.style.backgroundColor = "#c0ac64",
+                    tipo1.style.backgroundColor = "#c0ac64"
+                )
+            case 'ground':
+                return (
+                    background1.style.backgroundColor = "#eeb84f",
+                    background2.style.backgroundColor = "#eeb84f",
+                    tipo1.style.backgroundColor = "#eeb84f"
+                )
+            case 'flying':
+                return (
+                    background1.style.backgroundColor = "#ccd9e5",
+                    background2.style.backgroundColor = "#ccd9e5",
+                    tipo1.style.backgroundColor = "#ccd9e5",
+                    tipo1.style.color = "#303030",
+                    txtNombre.style.color = "#303030",
+                    txtId.style.color = "#303030",
+                    tipo1.style.border = "2px solid #303030"
+                )
+            case 'bug':
+                return (
+                    background1.style.backgroundColor = "#a0cf64",
+                    background2.style.backgroundColor = "#a0cf64",
+                    tipo1.style.backgroundColor = "#a0cf64"
+                )
+            case 'poison':
+                return (
+                    background1.style.backgroundColor = "#a741f8",
+                    background2.style.backgroundColor = "#a741f8",
+                    tipo1.style.backgroundColor = "#a741f8"
+                )
+            case 'dark':
+                return (
+                    background1.style.backgroundColor = "#413636",
+                    background2.style.backgroundColor = "#413636",
+                    tipo1.style.backgroundColor = "#413636"
+                )
+            case 'ghost':
+                return (
+                    background1.style.backgroundColor = "#0c0f2b",
+                    background2.style.backgroundColor = "#0c0f2b",
+                    tipo1.style.backgroundColor = "#0c0f2b"
+                )
+            case 'ice':
+                return (
+                    background1.style.backgroundColor = "#bfe0ff",
+                    background2.style.backgroundColor = "#bfe0ff",
+                    tipo1.style.backgroundColor = "#bfe0ff",
+                    tipo1.style.color = "#303030",
+                    txtNombre.style.color = "#303030",
+                    txtId.style.color = "#303030",
+                    tipo1.style.border = "2px solid #303030"
+                )
+            case 'steel':
+                return (
+                    background1.style.backgroundColor = "#acadbf",
+                    background2.style.backgroundColor = "#acadbf",
+                    tipo1.style.backgroundColor = "#acadbf"
+                )
+            case 'dragon':
+                return (
+                    background1.style.backgroundColor = "#8065f0",
+                    background2.style.backgroundColor = "#8065f0",
+                    tipo1.style.backgroundColor = "#8065f0"
+                )
+            case 'fairy':
+                return (
+                    background1.style.backgroundColor = "#ecd0f9",
+                    background2.style.backgroundColor = "#ecd0f9",
+                    tipo1.style.backgroundColor = "#ecd0f9",
+                    tipo1.style.color = "#303030",
+                    txtNombre.style.color = "#303030",
+                    txtId.style.color = "#303030",
+                    tipo1.style.border = "2px solid #303030"
+                )
+            default:
+                return
+        }
+
+    }, [carga]);
+
+    useEffect(() => {
+        
+        tipo2 = document.querySelector('.tipo2');
+
+        switch( type2 ) {
+            case 'grass':
+                return (
+                    tipo2.style.backgroundColor = "#9AC79C"
+                )
+            case 'fire':
+                return (
+                    tipo2.style.backgroundColor = "#E28569"
+                )
+            case 'water':
+                return (
+                    tipo2.style.backgroundColor = "#82C3FF"
+                )
+            case 'normal':
+                return (
+                    tipo2.style.backgroundColor = "#cacac2"
+                )
+            case 'electric':
+                return (
+                    tipo2.style.backgroundColor = "#FFE85B"
+                )
+            case 'psychic':
+                return (
+                    tipo2.style.backgroundColor = "#FD92B9"
+                )
+            case 'fighting':
+                return (
+                    tipo2.style.backgroundColor = "#D6513E"
+                )
+            case 'rock':
+                return (
+                    tipo2.style.backgroundColor = "#c0ac64"
+                )
+            case 'ground':
+                return (
+                    tipo2.style.backgroundColor = "#eeb84f"
+                )
+            case 'flying':
+                return (
+                    tipo2.style.backgroundColor = "#ccd9e5"
+                )
+            case 'bug':
+                return (
+                    tipo2.style.backgroundColor = "#a0cf64"
+                )
+            case 'poison':
+                return (
+                    tipo2.style.backgroundColor = "#a741f8"
+                )
+            case 'dark':
+                return (
+                    tipo2.style.backgroundColor = "#413636"
+                )
+            case 'ghost':
+                return (
+                    tipo2.style.backgroundColor = "#0c0f2b"
+                )
+            case 'ice':
+                return (
+                    tipo2.style.backgroundColor = "#bfe0ff"
+                )
+            case 'steel':
+                return (
+                    tipo2.style.backgroundColor = "#acadbf"
+                )
+            case 'dragon':
+                return (
+                    tipo2.style.backgroundColor = "#8065f0"
+                )
+            case 'fairy':
+                return (
+                    tipo2.style.backgroundColor = "#ecd0f9"
                 )
             default:
                 return
