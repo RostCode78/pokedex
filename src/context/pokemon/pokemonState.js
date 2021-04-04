@@ -7,7 +7,10 @@ import {
     OBTENER_POKEMONS,
     BUSCAR_POKEMON,
     FILTRAR_POKEMON,
-    POKEMON_ACTUAL
+    POKEMON_ACTUAL,
+    MOSTRAR_DATOS,
+    MOSTRAR_STATS,
+    MOSTRAR_MOVES
 } from '../../types/index';
 
 const PokemonState = props => {
@@ -39,7 +42,10 @@ const PokemonState = props => {
         catchemall : [],
         prueba : false,
         busqueda : '',
-        pokemon : null
+        pokemon : null,
+        dataicon: true,
+        statsicon: false,
+        movesicon: false
     }
 
     const [ state, dispatch ] = useReducer( pokemonReducer, initialState );
@@ -72,18 +78,42 @@ const PokemonState = props => {
         })
     }
 
+    const dataOn = () => {
+        dispatch({
+            type: MOSTRAR_DATOS
+        })
+    }
+
+    const statsOn = () => {
+        dispatch({
+            type: MOSTRAR_STATS
+        })
+    }
+
+    const movesOn = () => {
+        dispatch({
+            type: MOSTRAR_MOVES
+        })
+    }
+
     return (
         <pokemonContext.Provider
             value={{
                 busqueda: state.busqueda,
                 catchemall: state.catchemall,
                 pokemon: state.pokemon,
+                dataicon: state.dataicon,
+                statsicon: state.statsicon,
+                movesicon: state.movesicon,
                 pokemons,
                 cargando,
                 obtenerPokemons,
                 buscarPokemon,
                 filtrarPokemon,
-                pokemonActual
+                pokemonActual,
+                dataOn,
+                statsOn,
+                movesOn
             }}
         >
             { props.children }

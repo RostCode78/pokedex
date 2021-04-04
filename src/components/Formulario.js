@@ -67,6 +67,7 @@ const Formulario = () => {
                         name="nombre"
                         value={nombre}
                         onChange={ onChangePokemon }
+                        autocomplete="off"
                     />
                 </div>
                 <div className={styles.form_submit}>
@@ -77,7 +78,7 @@ const Formulario = () => {
                 </div>
             </div>
 
-            { error ? <Error mensaje="Coloca un nombre o numero de pokemon"/> : null }
+            { error ? <Error mensaje="Busca usando el nombre de un Pokémon."/> : null }
 
         </form>
 

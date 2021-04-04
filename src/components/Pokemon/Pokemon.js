@@ -1,16 +1,20 @@
-import { useContext, useEffect, useState, Fragment } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import pokemonContext from '../../context/pokemon/pokemonContext';
 import MovesList from './MovesList';
 import ReturnBtn from './ReturnBtn';
+import Navbar from './Navbar';
+import Datos from './Datos/Datos';
+import Stats from './Stats/Stats';
+import Moves from './Moves/Moves';
 import axios from 'axios';
-import './Pokemon.css';
+import '../css/VistaPokemon.css';
 
 const Pokemon = () => {
 
     // Extraer pokemon de state inicial
     const pokemonsContext = useContext(pokemonContext);
-    const { pokemon } = pokemonsContext;
+    const { dataicon, statsicon, movesicon, pokemon } = pokemonsContext;
 
     const history = useHistory();
 
@@ -404,7 +408,27 @@ const Pokemon = () => {
                 </div>
             </div>
             <div className="background-top-2"></div>
-            <div className="background-bottom-1"></div>
+            <div className="background-bottom-1">
+                    <Navbar/>
+                    <div className="container">
+
+                        { dataicon
+                        ?
+                            <Datos/>
+                        : null }
+
+                        { statsicon
+                        ?
+                            <Stats/>
+                        : null }
+
+                        { movesicon
+                        ?
+                            <Moves/>
+                        : null }
+                        
+                    </div>
+            </div>
             <div className="background-bottom-2"></div>
 
         </div>

@@ -24,6 +24,7 @@ const Card = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &:hover{
         box-shadow: 4px 4px 8px #00000022, -4px -4px 8px #FFFFFF22;
