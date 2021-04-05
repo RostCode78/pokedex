@@ -31,6 +31,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 11;
 }
 
 .nombre-id h2 {
@@ -170,5 +171,5 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 110px;
+    top: 95px;
 }

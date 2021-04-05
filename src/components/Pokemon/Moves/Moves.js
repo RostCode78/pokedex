@@ -1,8 +1,13 @@
 import './Moves.css';
+import MovesList from '../MovesList';
 
-const Moves = () => {
+const Moves = ({ moves }) => {
     return (
-        <div className="content-moves"></div>
+        <div className="content-moves">
+            <MovesList
+                moves={moves}
+            />
+        </div>
     );
 }
 

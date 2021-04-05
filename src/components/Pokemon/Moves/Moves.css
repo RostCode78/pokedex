@@ -1,5 +1,5 @@
 .content-moves {
     width: 80%;
-    height: 300px;
-    background-color: red;
+    height: auto;
+    padding: 10px 0;
 }

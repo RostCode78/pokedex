@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import pokemonContext from '../../context/pokemon/pokemonContext';
-import MovesList from './MovesList';
 import ReturnBtn from './ReturnBtn';
 import Navbar from './Navbar';
 import Datos from './Datos/Datos';
@@ -414,17 +413,38 @@ const Pokemon = () => {
 
                         { dataicon
                         ?
-                            <Datos/>
+                            <Datos
+                                genero={genero}
+                                descripcion={descripcion}
+                                grupohuevo={grupohuevo}
+                                grupociclo={grupociclo}
+                                amistad={amistad}
+                                color={color}
+                                dosgrupos={dosgrupos}
+                            />
                         : null }
 
                         { statsicon
                         ?
-                            <Stats/>
+                            <Stats
+                                habilidad1={habilidad1}
+                                habilidad2={habilidad2}
+                                habilidad3={habilidad3}
+                                habilidad4={habilidad4}
+                                hp={hp}
+                                atk={atk}
+                                satk={satk}
+                                def={def}
+                                sdef={sdef}
+                                spd={spd}
+                            />
                         : null }
 
                         { movesicon
                         ?
-                            <Moves/>
+                            <Moves
+                                moves={moves}
+                            />
                         : null }
                         
                     </div>

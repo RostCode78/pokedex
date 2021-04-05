@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import arrow from '../../images/left-arrow.svg';
+import '../css/ReturnBtn.css';
 
 const Btn = styled.div`
     width: 50px;
@@ -11,12 +13,17 @@ const Btn = styled.div`
     top: 31px;
     left: 25px;
     z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const ReturnBtn = () => {
     return (
         <Link to={'/'}>
-            <Btn></Btn>
+            <Btn>
+                <img className="return-btn" src={arrow} alt="return"/>
+            </Btn>
         </Link>
     );
 }

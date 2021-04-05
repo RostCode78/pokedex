@@ -13,6 +13,8 @@ const Row = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 50px;
 `;
 
 const ListaPokemons = () => {
